@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h2>Author details: {{ object.first_name }} {{object.last_name }}</h2>
+
+<div style="margin-left:20px;margin-top:20px">
+  <p><strong>User name: </strong>  {{ object.user_name }} </a></p>
+  <p><strong>Full name :</strong> {{ object.first_name }} {{object.last_name }}</p>
+  <h4>Posted: </h4>
+  <d1>
+    {% for post in author.blogpost_set.all %}
+    <dt><a href="{% url 'view-post' post.pk %}">{{ post }}</a></dt>
+    {% endfor %}
+  </d1>
+
+</div>
+{% endblock %}

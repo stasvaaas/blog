@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Blog main page</h1>
+<p>Welcome to the <em>test blog website</em>!</p>
+<h2>We have:</h2>
+<h5>
+    <ul>
+        <li>Posts: {{ num_posts }}</li>
+        <li>Authors: {{ num_authors }}</li>
+        <li>Topics: {{ num_topics }}</li>
+    </ul>
+</h5>
+{% endblock %}

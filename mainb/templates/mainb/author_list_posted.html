@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Posted by me:</h1>
+
+    {% if author_list %}
+    <ul>
+
+      {% for post in author_list %}
+        <a href="{% url 'topic-detail' post.blogpost.pk %}">{{ post.blogpost.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are posts by me.</p>
+    {% endif %}
+{% endblock %}

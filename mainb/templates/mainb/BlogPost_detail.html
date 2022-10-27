@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>Title: {{ object.title }}</h1>
+
+  <p><strong>Author:</strong> <a href="{{ object.author.get_absolute_url }}"> {{ object.author }} </a></p>
+  <p><strong>Topic:</strong> <a href=" {{Topic.get_absolute_erl }}">{{ object.topic.all|join:", " }}</a></p>
+  <p>{{object.main_text }}</p>
+{% endblock %}
