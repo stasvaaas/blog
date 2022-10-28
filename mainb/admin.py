@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, Topic, CustomUser
+from .models import BlogPost, Topic, CustomUser, Author
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
@@ -12,10 +12,10 @@ from .forms import CustomUserCreationForm, CustomUserChangeForm
 # admin.site.register(Topic)
 # admin.site.register(Author)
 
-# @admin.register(Author)
-# class AuthorAdmin(admin.ModelAdmin):
-# list_display = ('user_name', 'last_name', 'first_name',)
-# fields = ('user_name', 'last_name', 'first_name', 'date_of_birth')
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('user_name', 'first_name', 'last_name', 'email')
+    fields = ('user_name', 'last_name', 'first_name',)
 
 
 @admin.register(BlogPost)

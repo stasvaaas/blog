@@ -1,7 +1,12 @@
 {% extends "base_generic.html" %}
 
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% block content %}
 
+
+<div class="features">
 {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -29,12 +34,12 @@
   <td>{{ form.password }}</td>
 </tr>
 </table>
-
-<input type="submit" value="login" />
+<br>
+<button class="btn btn-success" type="submit">Sign up</button>
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
+</div>
 {% endblock %}
