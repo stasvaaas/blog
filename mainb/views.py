@@ -4,7 +4,7 @@ from .models import BlogPost, Topic, CustomUser
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, BlogPostForm
 
 
 # a function based view
@@ -32,6 +32,23 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
+
+
+def create(request):
+    error = ''
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog')
+        else:
+            error = 'Form is incorrect'
+    form = BlogPostForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'create.html', data)
 
 
 class BlogPostListView(generic.ListView):

@@ -15,7 +15,7 @@ class BlogPost(models.Model):
     # id = models.UUIDField(primary_key=True, default=uuid.uuid4,
     # help_text="Unique ID for this particular post across the site")
     # posted date
-    posted = models.DateField(auto_now_add=True)
+    posted = models.DateField(auto_now=True)
 
     def get_absolute_url(self):
         # 'view-post' to click and see on the post and see it`s details
@@ -43,10 +43,14 @@ class Topic(models.Model):
         return reverse('topic-detail', args=[str(self.id)])
 
 
-
 class CustomUser(AbstractUser):
     pass
     # add additional fields in here
 
     def __str__(self):
         return self.username
+
+    def get_absolute_url(self):
+        return reverse('author-detail', args=[str(self.id)])
+
+

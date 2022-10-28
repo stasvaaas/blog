@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainb.apps.MainbConfig',
+
 ]
 
 AUTH_USER_MODEL = 'mainb.CustomUser'
