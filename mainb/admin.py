@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, Topic, CustomUser, Author
+from .models import BlogPost, Topic, CustomUser, Author, BlogComment
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
@@ -37,3 +37,8 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+
+@admin.register(BlogComment)
+class BlogCommentAdmin(admin.ModelAdmin):
+    list_display = ('com_title', 'author')

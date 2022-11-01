@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, BlogPost
+from .models import CustomUser, BlogPost, BlogComment
 from django.forms import ModelForm, TextInput
 
 
@@ -34,3 +34,9 @@ class BlogPostForm(ModelForm):
                 'placeholder': 'Enter your text...'
                 })
         }
+
+
+class NewCommentForm(forms.ModelForm):
+    class Meta:
+        model = BlogComment
+        fields = ['content']

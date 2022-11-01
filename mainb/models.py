@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.db import models
 
 
@@ -29,6 +29,9 @@ class BlogPost(models.Model):
     # help_text="Unique ID for this particular post across the site")
     # posted date
     posted = models.DateField(auto_now=True)
+    @property
+    def number_comments(self):
+        return BlogComment.objects.filter(com_title=self).count()
 
     def get_absolute_url(self):
         # 'view-post' to click and see on the post and see it`s details
@@ -66,3 +69,13 @@ class CustomUser(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('author-detail', args=[str(self.id)])
+
+
+class BlogComment(models.Model):
+    com_title = models.ForeignKey(BlogPost, related_name='comments', on_delete=models.CASCADE)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return str(self.author) + ', ' + self.com_title.title[:40]
