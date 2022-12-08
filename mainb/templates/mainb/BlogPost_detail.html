@@ -3,11 +3,11 @@
   <h1>Title: {{ object.title }}</h1>
 
   <p><strong>Author:</strong> <a href="{{ object.author.get_absolute_url }}"> {{ object.author }} </a></p>
-  <p><strong>Topic:</strong> <a href=" {{Topic.get_absolute_erl }}">{{ object.topic.all|join:", " }}</a></p>
+  <p><strong>Topic:</strong> <a href="{{ object.topic.get_absolute_url }}">{{ object.topic.all|join:", " }}</a></p>
   <p>{{object.main_text }}</p>
 
 
-<p><strong>Leave your comment!</p>
+<p><strong>Leave your comment!</strong></p>
 <div id="comments_section">
 
   {% if user.is_authenticated %}

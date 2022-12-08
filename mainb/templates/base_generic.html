@@ -18,9 +18,10 @@
                 <li><a href="{% url 'blog' %}">Home</a></li>
                 <li><a href="{% url 'all-posts' %}">All posts</a></li>
                 <li><a href="{% url 'authors' %}">All authors</a></li>
+                <li><a href="{% url 'topics' %}">All topics</a></li>
                 {% if user.is_authenticated %}
                     <li>Hello, {{ user.get_username }} !</li>
-                    <li><a href=" {% url 'create' %}">Create a post</a></li>
+                   <!-- <li><a href=" {% url 'create' %}">Create a post</a></li> -->
                 <!-- {{ request.path }} to redirect to a page where 'login' was pressed -->
                     <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
                 {% else %}

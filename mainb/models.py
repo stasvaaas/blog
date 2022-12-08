@@ -34,7 +34,7 @@ class BlogPost(models.Model):
         return BlogComment.objects.filter(com_title=self).count()
 
     def get_absolute_url(self):
-        # 'view-post' to click and see on the post and see it`s details
+        # 'view-post' to click on the post and see it`s details
         # return reverse('view-post', kwargs={'pk': self.pk})
         # return f'/allposts/{self.pk}/'
 

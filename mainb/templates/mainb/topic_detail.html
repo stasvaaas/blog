@@ -4,7 +4,7 @@
         <ul>
             {% for post in topic.blogpost_set.all %}
                 <li>
-                    <a href="{{ post.get_absolute_url }}">{{ post.title }} </a>
+                    <a href="{% url 'view-post' post.pk %}">{{ post.title }} </a>
                 </li>
             {% endfor %}
         </ul>

@@ -35,21 +35,7 @@ class SignUpView(CreateView):
     template_name = 'signup.html'
 
 
-def create(request):
-    error = ''
-    if request.method == 'POST':
-        form = BlogPostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('blog')
-        else:
-            error = 'Form is incorrect'
-    form = BlogPostForm()
-    data = {
-        'form': form,
-        'error': error
-    }
-    return render(request, 'create.html', data)
+
 
 
 class BlogPostListView(generic.ListView):

@@ -2,7 +2,6 @@ from django.urls import path, include
 from . import views
 from .views import SignUpView
 
-
 urlpatterns = [
     path('', views.index, name='blog'),
     path('posts/', views.BlogPostListView.as_view(), name='all-posts'),
