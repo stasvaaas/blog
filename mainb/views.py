@@ -35,9 +35,6 @@ class SignUpView(CreateView):
     template_name = 'signup.html'
 
 
-
-
-
 class BlogPostListView(generic.ListView):
     model = BlogPost
     # context_object_name = 'post_list'

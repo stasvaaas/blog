@@ -9,8 +9,12 @@
   <h2>Sign up</h2>
     <form method="POST">
       {% csrf_token %}
-
-      {{ form.as_p }}
+       <label>{{ form.username.label }}</label>
+        {{ form.username }}
+        <label>{{ form.password1.label }}</label>
+        {{ form.password1 }}
+        <label>{{ form.password2.label }}</label>
+        {{ form.password2 }}
       <br>
     <button class="btn btn-success" type="submit">Sign up</button>
   </form>

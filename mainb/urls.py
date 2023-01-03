@@ -12,5 +12,4 @@ urlpatterns = [
     path('topics/<int:pk>', views.TopicDetailView.as_view(), name='topic-detail'),
     path('myposts/', views.PostedByAuthorListView.as_view(), name='my-posted'),
     path('signup/', SignUpView.as_view(), name='signup'),
-    path('mainb/create/', views.create, name='create'),
 ]

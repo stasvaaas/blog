@@ -29,15 +29,12 @@ class BlogPost(models.Model):
     # help_text="Unique ID for this particular post across the site")
     # posted date
     posted = models.DateField(auto_now=True)
+
     @property
     def number_comments(self):
         return BlogComment.objects.filter(com_title=self).count()
 
     def get_absolute_url(self):
-        # 'view-post' to click on the post and see it`s details
-        # return reverse('view-post', kwargs={'pk': self.pk})
-        # return f'/allposts/{self.pk}/'
-
         return reverse('view-post', args=[str(self.id)])
 
     def __str__(self):
